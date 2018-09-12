@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Tags Registro
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page7">
+  <h1 id="tagsRegistro-heading7" style="color:#000000;">
+    O que você gosta
+  </h1>
+  <div id="tagsRegistro-markdown21" class="show-list-numbers-and-dots">
+    <p style="color:#000000;">
+      {{usuario.name}}
+      Ajude-nos a entender o que você gosta.
+    </p>
+  </div>
+  <form id="tagsRegistro-form2">
+    <ion-item *ngFor="let tag of tags">
+      <ion-label>
+        {{tag}}
+      </ion-label>
+      <ion-toggle color="balanced" checked="false"></ion-toggle>
+    </ion-item>
+  </form>
+  <button id="tagsRegistro-button3" ion-button outline color="balanced" block (click)="Cadastrar()">
+    Cadastrar
+  </button>
+</ion-content>

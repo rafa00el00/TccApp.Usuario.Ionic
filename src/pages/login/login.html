@@ -1,0 +1,26 @@
+<ion-content padding id="main">
+  <form id="login-form3">
+    <div class="spacer" style="width:300px;height:147px;" id="login-spacer2"></div>
+    <ion-list id="login-list10">
+      <ion-item id="login-input8">
+        <ion-label>
+          Email
+        </ion-label>
+        <ion-input type="email" placeholder="" [(ngModel)]="login.email" name="login.email"></ion-input>
+      </ion-item>
+      <ion-item id="login-input9">
+        <ion-label>
+          Password
+        </ion-label>
+        <ion-input type="password" placeholder="" [(ngModel)]="login.password" name="login.password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="spacer" style="height:40px;" id="login-spacer1"></div>
+    <button id="login-button4" ion-button clear color="balanced" block on-click="DoLogin()">
+      Log in
+    </button>
+    <button id="login-button5" ion-button clear color="stable" block on-click="goToSignup()">
+      Registre-se
+    </button>
+  </form>
+</ion-content>

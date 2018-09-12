@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Signup
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page6">
+  <h1 id="signup-heading6" style="color:#000000;text-align:center;">
+    Registrar
+  </h1>
+  <form id="signup-form1">
+    <ion-list id="signup-list6">
+      <ion-item id="signup-input1">
+        <ion-label>
+          Name
+        </ion-label>
+        <ion-input type="text" placeholder="" [(ngModel)]="usuario.name" name="usuario.name"></ion-input>
+      </ion-item>
+      <ion-item id="signup-input2">
+        <ion-label>
+          Email
+        </ion-label>
+        <ion-input type="email" placeholder="" [(ngModel)]="usuario.email" name="usuario.email"></ion-input>
+      </ion-item>
+      <ion-item id="signup-input3">
+        <ion-label>
+          Password
+        </ion-label>
+        <ion-input type="password" placeholder="" [(ngModel)]="usuario.password" name="usuario.password"></ion-input>
+      </ion-item>
+      <ion-item id="signup-input4">
+        <ion-label>
+          CPF
+        </ion-label>
+        <ion-input type="text" placeholder="" [(ngModel)]="usuario.cpf" name="usuario.cpf"></ion-input>
+      </ion-item>
+      <ion-item id="signup-input5">
+        <ion-label>
+          Telefone
+        </ion-label>
+        <ion-input type="tel" placeholder="" [(ngModel)]="usuario.telefone" name="usuario.telefone"></ion-input>
+      </ion-item>
+      <ion-item id="signup-input6">
+        <ion-label>
+          Celular
+        </ion-label>
+        <ion-input type="tel" placeholder="" [(ngModel)]="usuario.celular" name="usuario.celular"></ion-input>
+      </ion-item>
+      <ion-item id="signup-input7">
+        <ion-label>
+          Data Nasc.
+        </ion-label>
+        <ion-input type="date" placeholder="" [(ngModel)]="usuario.dataNascimento" name="usuario.datanascimento"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button id="signup-button2" ion-button outline color="balanced" block on-click="goToTagsRegistro()">
+      Continuar
+    </button>
+  </form>
+</ion-content>

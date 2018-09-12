@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Pagar
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page10">
+  <h1 id="pagar-heading9" style="color:#000000;">
+    Titulo Evento
+  </h1>
+  <form id="pagar-form4">
+    <ion-item id="pagar-input11">
+      <ion-label>
+        Cartão
+      </ion-label>
+      <ion-input type="text" placeholder="" name="compra.cartao"></ion-input>
+    </ion-item>
+    <ion-item id="pagar-input12">
+      <ion-label>
+        Nome Titular
+      </ion-label>
+      <ion-input type="text" placeholder="" name="compra.nomeTitular"></ion-input>
+    </ion-item>
+    <ion-item id="pagar-input13">
+      <ion-label>
+        Vencimento
+      </ion-label>
+      <ion-input type="month" placeholder="" name="compra.vencimento"></ion-input>
+    </ion-item>
+    <ion-item id="pagar-input14">
+      <ion-label>
+        CVV
+      </ion-label>
+      <ion-input type="text" placeholder=""></ion-input>
+    </ion-item>
+  </form>
+  <button id="pagar-button8" ion-button outline color="balanced" block on-click="goToCompraEfetuada()">
+    Comprar
+  </button>
+</ion-content>
