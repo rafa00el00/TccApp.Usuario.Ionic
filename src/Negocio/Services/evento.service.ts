@@ -18,5 +18,32 @@ export class EventoService{
         });
     }
 
+    public GetEvento(codEvento:number){
+        return this.http.Get(this.baseUrl + "/" + codEvento).then(r => {
+            return JSON.parse(r.data);
+        });
+    }
+
+    public GetEventosEmAlta(){
+        return this.http.Get(this.baseUrl + "/EmAlta").then(r => {
+            return JSON.parse(r.data);
+        });
+    }
+    public GetEventosRecomendacoes(){
+        return this.http.Get(this.baseUrl + "/Recomendacoes").then(r => {
+            return JSON.parse(r.data);
+        });
+    }
+    public GetEventosUltimosVisitados(){
+        return this.http.Get(this.baseUrl + "/UltimosVisitados").then(r => {
+            return JSON.parse(r.data);
+        });
+    }
+    public GetEventosSimilares(codEvento:number){
+        return this.http.Get(this.baseUrl + "/Recomendado/" + codEvento).then(r => {
+            return JSON.parse(r.data);
+        });
+    }
+
     
 }
