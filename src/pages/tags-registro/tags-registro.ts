@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController, Toggle } from 'ionic-angular';
 import { Usuario } from '../../Negocio/Models/Usuario';
 import { AuthNegocio } from '../../Negocio/BO/auth.negocio';
 import { EventoNegocio } from '../../Negocio/BO/evento.negocio';
@@ -32,6 +32,17 @@ export class TagsRegistroPage implements OnInit {
 
     this.tags = resp;
     load.dismiss();
+  }
+
+  changeList(toggle: Toggle,item){
+
+    if(toggle.value){
+      this.usuario.tags.push(item);
+    }else{
+      let i = this.usuario.tags.indexOf(item);
+      this.usuario.tags.splice(i,1);
+    }
+
   }
 
 

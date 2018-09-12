@@ -1,5 +1,12 @@
 export class Usuario{
     
+
+        /**
+         *
+         */
+        constructor() {
+                this.tags = [];
+        }
         public name:string;
         public cpf:string;
         public dataNascimento:Date;

@@ -20,7 +20,7 @@
       <ion-label>
         {{tag}}
       </ion-label>
-      <ion-toggle color="balanced" checked="false"></ion-toggle>
+      <ion-toggle color="balanced" (ionChange)="changeList($event, tag)" checked="false"></ion-toggle>
     </ion-item>
   </form>
   <button id="tagsRegistro-button3" ion-button outline color="balanced" block (click)="Cadastrar()">
