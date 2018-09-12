@@ -24,6 +24,12 @@ export class EventoService{
         });
     }
 
+    public GetEventos(){
+        return this.http.Get(this.baseUrl + "").then(r => {
+            return JSON.parse(r.data);
+        });
+    }
+
     public GetEventosEmAlta(){
         return this.http.Get(this.baseUrl + "/EmAlta").then(r => {
             return JSON.parse(r.data);

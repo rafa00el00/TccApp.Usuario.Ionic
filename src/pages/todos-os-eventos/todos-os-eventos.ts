@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { EventoDetalhePage } from '../evento-detalhe/evento-detalhe';
 import { PagarPage } from '../pagar/pagar';
@@ -7,14 +7,27 @@ import { ComprasPage } from '../compras/compras';
 import { FeedBackPage } from '../feed-back/feed-back';
 import { FeedEnviadoPage } from '../feed-enviado/feed-enviado';
 import { TabsControllerPage } from '../tabs-controller/tabs-controller';
+import { EventoTo } from '../../Negocio/Models/evento.to';
+import { EventoNegocio } from '../../Negocio/BO/evento.negocio';
 
 @Component({
   selector: 'page-todos-os-eventos',
   templateUrl: 'todos-os-eventos.html'
 })
-export class TodosOsEventosPage {
+export class TodosOsEventosPage implements OnInit {
+  eventos: EventoTo[];
+  
+  constructor(
+    public navCtrl: NavController,
+    private _eventoNegocio:EventoNegocio
 
-  constructor(public navCtrl: NavController) {
+  ) {
+  }
+  
+  
+  async ngOnInit() {
+    this.eventos = new Array<EventoTo>();
+    this.eventos = (await this._eventoNegocio.GetEventosEmAlta())
   }
   goToEventoDetalhe(params){
     if (!params) params = {};

@@ -4,5 +4,6 @@ export class EventoTo{
     public DescricaoSimples:string;
     public Img:string
     public Valor:number;
-    public DataEvento:Date
+    public DataEvento:Date;
+    public Local:string;
 }

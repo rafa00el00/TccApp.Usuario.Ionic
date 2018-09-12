@@ -7,7 +7,7 @@
 </ion-header>
 <ion-content padding id="page9">
   <h1 id="eventoDetalhe-heading8" style="color:#000000;">
-    Titulo do Evento
+    {{evento.Nome}}
   </h1>
   <div class="spacer" style="width:300px;height:20px;" id="eventoDetalhe-spacer3"></div>
   <div id="eventoDetalhe-markdown28" class="show-list-numbers-and-dots">
@@ -15,7 +15,7 @@
       <strong>
         Quando?
       </strong>
-      01/01/2001
+      {{evento.DataEvento}}
     </p>
   </div>
   <div id="eventoDetalhe-markdown31" class="show-list-numbers-and-dots">
@@ -23,7 +23,7 @@
       <strong>
         Local:
       </strong>
-      Rua Domigues Rodrigues
+      {{evento.Logradouro}}, {{evento.Numero}} {{evento.Complemento}} - {{evento.Bairro}} - {{evento.Cidade}} -{{evento.UF}}
     </p>
   </div>
   <div class="spacer" style="width:300px;height:20px;" id="eventoDetalhe-spacer4"></div>
@@ -36,10 +36,10 @@
   </div>
   <div id="eventoDetalhe-markdown29" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
-      Descrição
+      {{evento.Descricao}}
     </p>
   </div>
   <button id="eventoDetalhe-button6" ion-button clear color="balanced" block on-click="goToPagar()">
-    Adiquirir por R$10.00
+    Adiquirir por R${{evento.Valor}}
   </button>
-</ion-content>
+</ion-content

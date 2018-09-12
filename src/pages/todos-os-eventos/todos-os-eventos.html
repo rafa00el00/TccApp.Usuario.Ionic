@@ -12,19 +12,19 @@
   <h1 id="todosOsEventos-heading4" style="color:#000000;">
     O Que Temos...
   </h1>
-  <ion-card id="todosOsEventos-card23">
+  <ion-card id="todosOsEventos-card23" *ngFor="let evento of eventos">
     <ion-list>
       <ion-item id="todosOsEventos-list-item-container4">
         <div id="todosOsEventos-markdown12" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
             <strong>
-              Titulo
+              {{evento.Titulo}}
             </strong>
           </p>
         </div>
         <div id="todosOsEventos-markdown13" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
-            Local
+            {{evento.Local}}
           </p>
         </div>
         <div id="todosOsEventos-markdown14" class="show-list-numbers-and-dots">
@@ -32,7 +32,7 @@
             <strong>
               Quando?
             </strong>
-            10/01/200
+            {{evento.DataEvento}}
           </p>
         </div>
         <div id="todosOsEventos-markdown15" class="show-list-numbers-and-dots">
@@ -40,11 +40,11 @@
             <strong>
               Valor:
             </strong>
-            00.00
+            {{evento.Valor}}
           </p>
         </div>
       </ion-item>
-      <button id="todosOsEventos-button7" ion-button clear color="balanced" icon-left on-click="goToEventoDetalhe()">
+      <button id="todosOsEventos-button7" ion-button clear color="balanced" icon-left on-click="goToEventoDetalhe({codEvento: evento.Id})">
         <ion-icon name="add"></ion-icon>
         Detalhes
       </button>

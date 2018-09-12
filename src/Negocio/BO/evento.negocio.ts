@@ -17,6 +17,10 @@ export class EventoNegocio{
         return this._eventoService.GetEvento(codEvento);
     }
 
+    public GetEventos(){
+        return this._eventoService.GetEventos();
+    }
+
     public GetEventosEmAlta(){
         return this._eventoService.GetEventosEmAlta();
     }
