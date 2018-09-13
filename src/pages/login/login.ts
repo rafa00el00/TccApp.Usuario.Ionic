@@ -25,6 +25,8 @@ export class LoginPage {
     private dialog: AlertController,
   ) {
     this.login = new LoginTo();
+    this.login.email = "whitestrapes@gmail.com";
+    this.login.password = "Paicon@123"
   }
   goToTodosOsEventos(params) {
     if (!params) params = {};

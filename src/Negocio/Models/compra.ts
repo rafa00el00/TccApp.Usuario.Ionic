@@ -1,13 +1,13 @@
 export class Compra {
 
 
-    public Id: number
-    public GuidCompra: string;
-    public CodEvento: number;
-    public NomeEvento: string;
-    public QtdIngressos: number;
-    public ValorTotal: number;
-    public GuidUsuario: string;
-    public NomeUsuario: string;
-    public CodEmpresa: number;
+    public id: number
+    public guidCompra: string;
+    public codEvento: number;
+    public nomeEvento: string;
+    public qtdIngressos: number;
+    public valorTotal: number;
+    public guidUsuario: string;
+    public nomeUsuario: string;
+    public codEmpresa: number;
 }

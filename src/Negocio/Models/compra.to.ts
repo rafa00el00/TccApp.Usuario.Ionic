@@ -1,7 +1,7 @@
 export class CompraTo{
-    public Titulo :string;
-    public DescricaoSimples :string;
-    public Img :string;
-    public DataEvento :Date;
-    public Status :string;
+    public titulo :string;
+    public descricaoSimples :string;
+    public img :string;
+    public dataEvento :Date;
+    public status :string;
 }

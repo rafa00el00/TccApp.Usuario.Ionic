@@ -1,9 +1,9 @@
 export class EventoTo{
-    public Id:number;
-    public Titulo:string;
-    public DescricaoSimples:string;
-    public Img:string
-    public Valor:number;
-    public DataEvento:Date;
-    public Local:string;
+    public id:number;
+    public titulo:string;
+    public descricaoSimples:string;
+    public img:string
+    public valor:number;
+    public dataEvento:Date;
+    public local:string;
 }

@@ -7,7 +7,7 @@
 </ion-header>
 <ion-content padding id="page9">
   <h1 id="eventoDetalhe-heading8" style="color:#000000;">
-    {{evento.Nome}}
+    {{evento.nome}}
   </h1>
   <div class="spacer" style="width:300px;height:20px;" id="eventoDetalhe-spacer3"></div>
   <div id="eventoDetalhe-markdown28" class="show-list-numbers-and-dots">
@@ -15,7 +15,7 @@
       <strong>
         Quando?
       </strong>
-      {{evento.DataEvento}}
+      {{evento.dataEvento | date:"dd/MM/yyyy"}}
     </p>
   </div>
   <div id="eventoDetalhe-markdown31" class="show-list-numbers-and-dots">
@@ -23,7 +23,7 @@
       <strong>
         Local:
       </strong>
-      {{evento.Logradouro}}, {{evento.Numero}} {{evento.Complemento}} - {{evento.Bairro}} - {{evento.Cidade}} -{{evento.UF}}
+      {{evento.logradouro}}, {{evento.numero}} {{evento.complemento}} - {{evento.bairro}} - {{evento.cidade}} -{{evento.uF}}
     </p>
   </div>
   <div class="spacer" style="width:300px;height:20px;" id="eventoDetalhe-spacer4"></div>
@@ -36,10 +36,61 @@
   </div>
   <div id="eventoDetalhe-markdown29" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
-      {{evento.Descricao}}
+      {{evento.descricao}}
     </p>
   </div>
   <button id="eventoDetalhe-button6" ion-button clear color="balanced" block on-click="goToPagar()">
-    Adiquirir por R${{evento.Valor}}
+    Adiquirir por {{evento.valor | currency:'BRL'}}
   </button>
-</ion-content
+  <div class="spacer" style="width:300px;height:20px;" id="eventoDetalhe-spacer3"></div>
+  <h1 id="eventoDetalhe-heading8" style="color:#000000;">
+    Eventos Similares:
+  </h1>
+  <ion-list>
+    <ion-card id="todosOsEventos-card23" *ngFor="let ev of similares ">
+      <ion-list>
+        <ion-item id="todosOsEventos-list-item-container4">
+          <div id="todosOsEventos-markdown12" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">
+              <strong>
+                {{ev.titulo}}
+              </strong>
+            </p>
+          </div>
+          <div id="todosOsEventos-markdown13" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">
+              {{ev.local}}
+            </p>
+          </div>
+          <div id="todosOsEventos-markdown14" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">
+              <strong>
+                Quando?
+              </strong>
+              {{ev.dataEvento | date:"dd/MM/yyyy"}}
+            </p>
+          </div>
+          <div id="todosOsEventos-markdown15" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">
+              <strong>
+                Valor:
+              </strong>
+              {{ev.valor| currency: "BRL"}}
+            </p>
+          </div>
+        </ion-item>
+        <ion-item>
+          <strong>
+            Sobre:
+          </strong>
+          {{ev.descricaoSimples}}
+        </ion-item>
+        <button id="todosOsEventos-button7" ion-button clear color="balanced" icon-left on-click="goToEventoDetalhe({codEvento: ev.id})">
+          <ion-icon name="add"></ion-icon>
+          Detalhes
+        </button>
+      </ion-list>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

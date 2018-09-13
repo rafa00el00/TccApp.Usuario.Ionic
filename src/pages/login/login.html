@@ -8,13 +8,13 @@
         <ion-label>
           Email
         </ion-label>
-        <ion-input type="email" placeholder="" name="login.email"></ion-input>
+        <ion-input type="email" placeholder="" [(ngModel)]="login.email" name="login.email"></ion-input>
       </ion-item>
       <ion-item id="login-input9">
         <ion-label>
           Password
         </ion-label>
-        <ion-input type="password" placeholder="" name="login.password"></ion-input>
+        <ion-input type="password" placeholder="" [(ngModel)]="login.password" name="login.password"></ion-input>
       </ion-item>
     </ion-list>
     <div class="spacer" style="height:40px;" id="login-spacer1"></div>

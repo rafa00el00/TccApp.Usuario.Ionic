@@ -27,11 +27,20 @@ export class TodosOsEventosPage implements OnInit {
   
   async ngOnInit() {
     this.eventos = new Array<EventoTo>();
-    this.eventos = (await this._eventoNegocio.GetEventosEmAlta())
+    this.eventos = (await this._eventoNegocio.GetEventos())
+    console.log(this.eventos);
+    
+  }
+
+  async doRefresh(refresher){
+    this.eventos = [];
+    this.eventos = (await this._eventoNegocio.GetEventos());
+    refresher.complete();
+
   }
   goToEventoDetalhe(params){
     if (!params) params = {};
-    this.navCtrl.push(EventoDetalhePage);
+    this.navCtrl.push(EventoDetalhePage,params);
   }goToPagar(params){
     if (!params) params = {};
     this.navCtrl.push(PagarPage);
