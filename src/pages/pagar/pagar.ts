@@ -1,20 +1,40 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { CompraEfetuadaPage } from '../compra-efetuada/compra-efetuada';
 import { ComprasPage } from '../compras/compras';
 import { FeedBackPage } from '../feed-back/feed-back';
 import { FeedEnviadoPage } from '../feed-enviado/feed-enviado';
 import { EventoDetalhePage } from '../evento-detalhe/evento-detalhe';
 import { TabsControllerPage } from '../tabs-controller/tabs-controller';
+import { Evento } from '../../Negocio/Models/evento';
+import { Pagamento } from '../../Negocio/Models/pagamento';
+import { Compra } from '../../Negocio/Models/compra';
 
 @Component({
   selector: 'page-pagar',
   templateUrl: 'pagar.html'
 })
 export class PagarPage {
+  evento:Evento
+  compra:Pagamento;
+  myCompra:Compra;
+  constructor(
+    public navCtrl: NavController,
+    private _navParams:NavParams
+  ) {
+    this.evento = _navParams.get("evento");
+    this.compra = new Pagamento()
+    this.myCompra = new Compra();
+    this.myCompra.pagamento = this.compra;
+    this.myCompra.nomeEvento = this.evento.nome;
+    this.myCompra.codEvento = this.evento.id;
+    this.myCompra.qtdIngressos = 1;
+    this.myCompra.dataEvento = this.evento.dataEvento;
+    this.myCompra.valorTotal = this.evento.valor;
 
-  constructor(public navCtrl: NavController) {
   }
+
+
   goToCompraEfetuada(params){
     if (!params) params = {};
     this.navCtrl.push(TabsControllerPage);

@@ -17,25 +17,25 @@
       <ion-label>
         Cartão
       </ion-label>
-      <ion-input type="text" placeholder="" name="compra.cartao"></ion-input>
+      <ion-input type="text" placeholder="" [(ngModel)]="compra.cartao" name="compra.cartao"></ion-input>
     </ion-item>
     <ion-item id="pagar-input12">
       <ion-label>
         Nome Titular
       </ion-label>
-      <ion-input type="text" placeholder="" name="compra.nomeTitular"></ion-input>
+      <ion-input type="text" placeholder="" [(ngModel)]="compra.nomeTitular" name="compra.nomeTitular"></ion-input>
     </ion-item>
     <ion-item id="pagar-input13">
       <ion-label>
         Vencimento
       </ion-label>
-      <ion-input type="month" placeholder="" name="compra.vencimento"></ion-input>
+      <ion-input type="month" placeholder="" [(ngModel)]="compra.vencimento" name="compra.vencimento"></ion-input>
     </ion-item>
     <ion-item id="pagar-input14">
       <ion-label>
         CVV
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input type="text" placeholder="" [(ngModel)]="compra.cvv" name="compra.cvv"></ion-input>
     </ion-item>
   </form>
   <button id="pagar-button8" ion-button outline color="balanced" block on-click="goToCompraEfetuada()">

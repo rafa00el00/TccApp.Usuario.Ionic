@@ -56,6 +56,6 @@ export class EventoDetalhePage implements OnInit {
     this.navCtrl.push(FeedEnviadoPage);
   }goToEventoDetalhe(params){
     if (!params) params = {};
-    this.navCtrl.push(EventoDetalhePage);
+    this.navCtrl.push(EventoDetalhePage,params);
   }
 }
