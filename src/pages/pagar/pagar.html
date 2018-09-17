@@ -17,7 +17,7 @@
       <ion-label>
         Cartão
       </ion-label>
-      <ion-input type="text" placeholder="" [(ngModel)]="compra.cartao" name="compra.cartao"></ion-input>
+      <ion-input type="number" placeholder="" [(ngModel)]="compra.cartao" name="compra.cartao"></ion-input>
     </ion-item>
     <ion-item id="pagar-input12">
       <ion-label>
@@ -35,10 +35,10 @@
       <ion-label>
         CVV
       </ion-label>
-      <ion-input type="text" placeholder="" [(ngModel)]="compra.cvv" name="compra.cvv"></ion-input>
+      <ion-input type="number" placeholder="" [(ngModel)]="compra.cvv" name="compra.cvv"></ion-input>
     </ion-item>
   </form>
-  <button id="pagar-button8" ion-button outline color="balanced" block on-click="goToCompraEfetuada()">
+  <button id="pagar-button8" ion-button outline color="balanced" block on-click="EfetuarPagamento()">
     Comprar
   </button>
 </ion-content>

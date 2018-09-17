@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { EventoDetalhePage } from '../evento-detalhe/evento-detalhe';
 import { PagarPage } from '../pagar/pagar';
 import { CompraEfetuadaPage } from '../compra-efetuada/compra-efetuada';
@@ -16,22 +16,46 @@ import { EventoNegocio } from '../../Negocio/BO/evento.negocio';
 })
 export class RecomendadosPage {
   eventos: EventoTo[];
+  semEventos: boolean;
   
   constructor(
     public navCtrl: NavController,
-    private _eventoNegocio:EventoNegocio
+    private _eventoNegocio:EventoNegocio,
+    private loadingCtrl:LoadingController
 
   ) {
   }
   
   
   async ngOnInit() {
-    this.eventos = new Array<EventoTo>();
-    this.eventos = (await this._eventoNegocio.GetEventosEmAlta())
+    let load = this.loadingCtrl.create();
+    load.present();
+    this.semEventos = false;
+    try {
+      this.eventos = new Array<EventoTo>();
+      this.eventos = (await this._eventoNegocio.GetEventosRecomendacoes())
+    } catch (error) {
+      this.semEventos =true
+    }
+    load.dismiss();
+    
+  }
+
+  async doRefresh(refresher){
+    this.eventos = [];
+    this.eventos = (await this._eventoNegocio.GetEventosRecomendacoes());
+    refresher.complete();
+
+  }
+
+  async doInfinite(infiniteScroll){
+    let evs = (await this._eventoNegocio.GetEventosRecomendacoes());
+    this.eventos = this.eventos.concat(evs);
+    infiniteScroll.complete();
   }
   goToEventoDetalhe(params){
     if (!params) params = {};
-    this.navCtrl.push(EventoDetalhePage);
+    this.navCtrl.push(EventoDetalhePage,params);
   }goToPagar(params){
     if (!params) params = {};
     this.navCtrl.push(PagarPage);

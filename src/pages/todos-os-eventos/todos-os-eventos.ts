@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { EventoDetalhePage } from '../evento-detalhe/evento-detalhe';
 import { PagarPage } from '../pagar/pagar';
 import { CompraEfetuadaPage } from '../compra-efetuada/compra-efetuada';
@@ -19,16 +19,19 @@ export class TodosOsEventosPage implements OnInit {
   
   constructor(
     public navCtrl: NavController,
-    private _eventoNegocio:EventoNegocio
+    private _eventoNegocio:EventoNegocio,
+    private loadingCtrl:LoadingController
 
   ) {
   }
   
   
   async ngOnInit() {
+    let load = this.loadingCtrl.create();
+    load.present();
     this.eventos = new Array<EventoTo>();
     this.eventos = (await this._eventoNegocio.GetEventos())
-    console.log(this.eventos);
+    load.dismiss();
     
   }
 
@@ -37,6 +40,12 @@ export class TodosOsEventosPage implements OnInit {
     this.eventos = (await this._eventoNegocio.GetEventos());
     refresher.complete();
 
+  }
+
+  async doInfinite(infiniteScroll){
+    let evs = (await this._eventoNegocio.GetEventos());
+    this.eventos = this.eventos.concat(evs);
+    infiniteScroll.complete();
   }
   goToEventoDetalhe(params){
     if (!params) params = {};

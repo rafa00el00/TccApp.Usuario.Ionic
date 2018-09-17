@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { EventoDetalhePage } from '../evento-detalhe/evento-detalhe';
 import { PagarPage } from '../pagar/pagar';
 import { CompraEfetuadaPage } from '../compra-efetuada/compra-efetuada';
@@ -19,19 +19,37 @@ export class EmAltaPage {
   
   constructor(
     public navCtrl: NavController,
-    private _eventoNegocio:EventoNegocio
+    private _eventoNegocio:EventoNegocio,
+    private loadingCtrl:LoadingController
 
   ) {
   }
   
   
   async ngOnInit() {
+    let load = this.loadingCtrl.create();
+    load.present();
     this.eventos = new Array<EventoTo>();
     this.eventos = (await this._eventoNegocio.GetEventosEmAlta())
+    load.dismiss();
+    
+  }
+
+  async doRefresh(refresher){
+    this.eventos = [];
+    this.eventos = (await this._eventoNegocio.GetEventosEmAlta());
+    refresher.complete();
+
+  }
+
+  async doInfinite(infiniteScroll){
+    let evs = (await this._eventoNegocio.GetEventosEmAlta());
+    this.eventos = this.eventos.concat(evs);
+    infiniteScroll.complete();
   }
   goToEventoDetalhe(params){
     if (!params) params = {};
-    this.navCtrl.push(EventoDetalhePage);
+    this.navCtrl.push(EventoDetalhePage,params);
   }goToPagar(params){
     if (!params) params = {};
     this.navCtrl.push(PagarPage);

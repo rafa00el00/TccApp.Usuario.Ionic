@@ -13,11 +13,15 @@ export class CompraService{
     }
 
     public GetCompra(codCompra:number){
-        return this.http.Get(this.baseUrl + "/" + codCompra);
+        return this.http.Get(this.baseUrl + "/" + codCompra).then(r => {
+            return JSON.parse(r.data);
+        });
     }
 
     public GetCompras(){
-        return this.http.Get(this.baseUrl + "/Usuario");
+        return this.http.Get(this.baseUrl + "/Usuario").then(r => {
+            return JSON.parse(r.data);
+        });
     }
 
     public PostCompra(compra:Compra){

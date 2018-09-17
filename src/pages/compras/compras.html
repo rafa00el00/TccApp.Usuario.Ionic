@@ -9,56 +9,63 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page2">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
   <h1 id="compras-heading5" style="color:#000000;">
     Suas Compras...
   </h1>
-  <ion-card id="compras-card24">
+  <ion-card *ngFor="let compra of compras">
     <ion-list>
       <ion-item id="compras-list-item-container5">
         <div id="compras-markdown16" style="text-align:center;" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
             <strong>
-              Status
+              {{compra.descricaoStatus}}
             </strong>
           </p>
         </div>
         <div id="compras-markdown20" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
             <strong>
-              Titulo
+              {{compra.titulo}}
             </strong>
           </p>
         </div>
-        <div id="compras-markdown17" class="show-list-numbers-and-dots">
+        <!-- <div id="compras-markdown17" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
             Local
           </p>
-        </div>
+        </div> -->
         <div id="compras-markdown18" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
             <strong>
               Quando?
             </strong>
-            10/01/200
+            {{compra.dataEvento | date:'dd/MM/yyyy'}}
           </p>
         </div>
-        <div id="compras-markdown19" class="show-list-numbers-and-dots">
+        <!-- <div id="compras-markdown19" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
             <strong>
               Valor:
             </strong>
             00.00
           </p>
-        </div>
+        </div> -->
       </ion-item>
-      <button id="compras-button10" ion-button clear color="balanced" icon-left on-click="goToEventoDetalhe()">
+      <button id="compras-button10" ion-button clear color="balanced" icon-left on-click="goToEventoDetalhe({codEvento: evento.id})">
         <ion-icon name="add"></ion-icon>
         Detalhes
       </button>
-      <button id="compras-button11" ion-button clear color="positive" icon-left on-click="goToFeedBack()">
+      <button id="compras-button11" ion-button clear color="positive" icon-left on-click="goToFeedBack({codEvento: evento.id})">
         <ion-icon name="happy"></ion-icon>
         FeedBack
       </button>
     </ion-list>
   </ion-card>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

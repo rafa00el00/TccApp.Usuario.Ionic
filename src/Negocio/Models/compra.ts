@@ -3,15 +3,23 @@ import { Pagamento } from "./pagamento";
 export class Compra {
 
     public id: number
-    public guidCompra: string;
-    public codEvento: number;
-    public nomeEvento: string;
-    public dataEvento:Date;
-    public qtdIngressos: number;
-    public valorTotal: number;
-    public guidUsuario: string;
-    public nomeUsuario: string;
-    public codEmpresa: number;
+    //objeto venda
+    public itemId: string
+    public descricao: string
+    public valor: number
+    public qtd: number
+    public dataEvento: Date
+    public dataCompra: Date
+    public guidCompra: string
 
-    public pagamento:Pagamento;
+    //status
+    public codStatus: number
+    public descricaoStatus: string
+
+    //vendedor
+    public guidempresa: string
+    public nomeempresa: string
+
+    //pagamento
+    public pagamento: Pagamento;
 }

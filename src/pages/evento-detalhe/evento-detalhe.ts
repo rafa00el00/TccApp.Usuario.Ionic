@@ -40,8 +40,8 @@ export class EventoDetalhePage implements OnInit {
   }
 
   goToPagar(params){
-    if (!params) params = {};
-    this.navCtrl.push(PagarPage);
+    if (!params) params = { evento : this.evento};
+    this.navCtrl.push(PagarPage,params);
   }goToCompraEfetuada(params){
     if (!params) params = {};
     this.navCtrl.push(TabsControllerPage);

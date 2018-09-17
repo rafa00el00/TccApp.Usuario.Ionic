@@ -5,6 +5,8 @@ import { AuthNegocio } from "./BO/auth.negocio";
 import { EventoNegocio } from "./BO/evento.negocio";
 import { HttpHelper } from "./Services/http.helper";
 import { HTTP } from '@ionic-native/http'
+import { CompraService } from "./Services/compra.service";
+import { CompraNegocio } from "./BO/compra.negocio";
 @NgModule({
     imports:[
         
@@ -16,8 +18,12 @@ import { HTTP } from '@ionic-native/http'
         HttpHelper,
         AuthService,
         EventoService,
+        CompraService,
+
         AuthNegocio,
-        EventoNegocio, 
+        EventoNegocio,
+        CompraNegocio, 
+
     ],
     
 })
