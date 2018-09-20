@@ -7,6 +7,8 @@ import { HttpHelper } from "./Services/http.helper";
 import { HTTP } from '@ionic-native/http'
 import { CompraService } from "./Services/compra.service";
 import { CompraNegocio } from "./BO/compra.negocio";
+import { FeedbackNegocio } from "./BO/feedback.negocio";
+import { FeedbackService } from "./Services/feedback.service";
 @NgModule({
     imports:[
         
@@ -19,10 +21,12 @@ import { CompraNegocio } from "./BO/compra.negocio";
         AuthService,
         EventoService,
         CompraService,
+        FeedbackService,
 
         AuthNegocio,
         EventoNegocio,
         CompraNegocio, 
+        FeedbackNegocio
 
     ],
     
