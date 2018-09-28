@@ -34,8 +34,13 @@ export class EventoDetalhePage implements OnInit {
   async ngOnInit(){
     let load = this.loadingCtrl.create();
     load.present();
-    this.evento = (await this._eventoNegocio.GetEvento(this.codEvento));
-    this.similares = (await this._eventoNegocio.GetEventosSimilares(this.codEvento));
+    try{
+
+      this.evento = (await this._eventoNegocio.GetEvento(this.codEvento));
+      this.similares = (await this._eventoNegocio.GetEventosSimilares(this.codEvento));
+    }catch(error){
+      console.log(error);
+    }
     load.dismiss();
   }
 

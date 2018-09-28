@@ -28,9 +28,13 @@ export class TagsRegistroPage implements OnInit {
   async ngOnInit() {
     let load = this.loadingCtrl.create();
     load.present();
-    let resp = (await this._eventoNegocio.GetTags());
+    try{
+      let resp = (await this._eventoNegocio.GetTags());
+      this.tags = resp;
+    }catch(error){
+      console.error(error);
+    }
 
-    this.tags = resp;
     load.dismiss();
   }
 

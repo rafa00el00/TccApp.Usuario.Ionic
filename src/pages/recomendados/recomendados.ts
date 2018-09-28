@@ -42,9 +42,13 @@ export class RecomendadosPage {
   }
 
   async doRefresh(refresher){
+    try{
     this.eventos = [];
     this.eventos = (await this._eventoNegocio.GetEventosRecomendacoes());
     refresher.complete();
+  }catch(error){
+    console.error(error);
+  }
 
   }
 

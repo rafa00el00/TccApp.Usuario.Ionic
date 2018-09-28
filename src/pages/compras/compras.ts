@@ -16,41 +16,51 @@ import { CompraTo } from '../../Negocio/Models/compra.to';
 })
 export class ComprasPage implements OnInit {
   compras: Array<CompraTo>;
-  
+
 
   constructor(
     public navCtrl: NavController,
-    private loadingCtrl:LoadingController,
-    private dialogo:AlertController,
-    private compraNegocio:CompraNegocio,
+    private loadingCtrl: LoadingController,
+    private dialogo: AlertController,
+    private compraNegocio: CompraNegocio,
   ) {
   }
 
   async ngOnInit(): Promise<void> {
     let load = this.loadingCtrl.create();
     load.present();
-
-    this.compras = (await this.compraNegocio.GetCompras()) ;
-
+    try {
+      this.compras = (await this.compraNegocio.GetCompras());
+    } catch (error) {
+      console.error(error);
+    }
     load.dismiss();
   }
 
-  async doRefresh(refresher){
-    this.compras = [];
-    this.compras = (await this.compraNegocio.GetCompras()) ;
-    refresher.complete();
+  async doRefresh(refresher) {
+    try {
+      this.compras = [];
+      this.compras = (await this.compraNegocio.GetCompras());
+      refresher.complete();
+    } catch (error) {
+      console.error(error);
+    }
 
   }
 
-  async doInfinite(infiniteScroll){
-    let cps = (await this.compraNegocio.GetCompras()) ;
+  async doInfinite(infiniteScroll) {
+    let cps = (await this.compraNegocio.GetCompras());
 
     this.compras = this.compras.concat(cps);
     infiniteScroll.complete();
   }
 
-  goToEventoDetalhe(params){
+  goToEventoDetalhe(params) {
     if (!params) params = {};
-    this.navCtrl.push(EventoDetalhePage);
+    this.navCtrl.push(EventoDetalhePage,params);
+  }
+  goToFeedBack(params){
+    if (!params) params = {};
+    this.navCtrl.push(FeedBackPage,params);
   }
 }
