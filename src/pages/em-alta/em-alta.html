@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>
+    <ion-title class="titulo-em-alta">
       Em Alta
     </ion-title>
   </ion-navbar>
@@ -33,7 +33,7 @@
           <div id="todosOsEventos-markdown14" class="show-list-numbers-and-dots">
             <p style="margin-top:0px;color:#000000;">
               <strong>
-                Quando?
+                Data:
               </strong>
               {{evento.dataEvento | date:"dd/MM/yyyy"}}
             </p>
@@ -41,7 +41,7 @@
           <div id="todosOsEventos-markdown15" class="show-list-numbers-and-dots">
             <p style="margin-top:0px;color:#000000;">
               <strong>
-                Valor:
+                Investimento:
               </strong>
               {{evento.valor| currency: "BRL"}}
             </p>
@@ -49,7 +49,7 @@
         </ion-item>
         <ion-item >
             <strong>
-                Sobre:
+                Sobre o evento:
               </strong>
               {{evento.descricaoSimples}}
         </ion-item>

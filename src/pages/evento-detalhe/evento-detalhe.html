@@ -13,7 +13,7 @@
   <div id="eventoDetalhe-markdown28" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
       <strong>
-        Quando?
+       Data:
       </strong>
       {{evento.dataEvento | date:"dd/MM/yyyy"}}
     </p>
@@ -30,7 +30,7 @@
   <div id="eventoDetalhe-markdown27" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
       <strong>
-        Descrição
+        Descrição do evento
       </strong>
     </p>
   </div>
@@ -40,11 +40,11 @@
     </p>
   </div>
   <button id="eventoDetalhe-button6" ion-button clear color="balanced" block on-click="goToPagar()">
-    Adiquirir por {{evento.valor | currency:'BRL'}}
+    Inscreva-se já! por {{evento.valor | currency:'BRL'}}
   </button>
   <div class="spacer" style="width:300px;height:20px;" id="eventoDetalhe-spacer3"></div>
   <h1 id="eventoDetalhe-heading8" style="color:#000000;">
-    Eventos Similares:
+    Você também pode ser interessar por:
   </h1>
   <ion-list>
     <ion-card id="todosOsEventos-card23" *ngFor="let ev of similares ">
