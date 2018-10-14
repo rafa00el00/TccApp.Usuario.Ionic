@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Recomendados
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page4">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+  <h1 id="recomendados-heading2" style="color:#000000;">
+    Para Voce...
+  </h1>
+  <h1 id="recomendados-heading2" *ngIf="semEventos" style="color:#000000;">
+      Sem Eventos Recomendados
+    </h1>
+  <ion-card id="todosOsEventos-card23" *ngFor="let evento of eventos">
+      <ion-list>
+        <ion-item id="todosOsEventos-list-item-container4">
+          <div id="todosOsEventos-markdown12" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">
+              <strong>
+                {{evento.titulo}}
+              </strong>
+            </p>
+          </div>
+          <div id="todosOsEventos-markdown13" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">
+              {{evento.local}}
+            </p>
+          </div>
+          <div id="todosOsEventos-markdown14" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">
+              <strong>
+                Quando?
+              </strong>
+              {{evento.dataEvento | date:"dd/MM/yyyy"}}
+            </p>
+          </div>
+          <div id="todosOsEventos-markdown15" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">
+              <strong>
+                Valor:
+              </strong>
+              {{evento.valor| currency: "BRL"}}
+            </p>
+          </div>
+        </ion-item>
+        <ion-item >
+            <strong>
+                Sobre:
+              </strong>
+              {{evento.descricaoSimples}}
+        </ion-item>
+        <button id="todosOsEventos-button7" ion-button clear color="balanced" icon-left on-click="goToEventoDetalhe({codEvento: evento.id})">
+          <ion-icon name="add"></ion-icon>
+          Detalhes
+        </button>
+      </ion-list>
+    </ion-card>
+</ion-content>

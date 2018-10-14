@@ -26,7 +26,10 @@ export class FeedbackService {
 
     public PostFeedback(feed: Feedback) {
         return this.http.Post(this.baseUrl + "/",feed)
-        .then(r => JSON.parse(r.data));
+        .then(r => {
+            console.log(r);
+            return JSON.parse(r.resp.data);
+        });
     }
 
 

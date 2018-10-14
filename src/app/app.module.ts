@@ -22,6 +22,7 @@ import { Tab5DefaultPagePage } from '../pages/tab5default-page/tab5default-page'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { NegocioModule } from '../Negocio/negocio.module';
+import { RecomendadosTagsPage } from '../pages/recomendado-tags/recomendados-tags';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NegocioModule } from '../Negocio/negocio.module';
     ComprasPage,
     TodosOsEventosPage,
     RecomendadosPage,
+    RecomendadosTagsPage,
     TabsControllerPage,
     EmAltaPage,
     SignupPage,
@@ -53,6 +55,7 @@ import { NegocioModule } from '../Negocio/negocio.module';
     ComprasPage,
     TodosOsEventosPage,
     RecomendadosPage,
+    RecomendadosTagsPage,
     TabsControllerPage,
     EmAltaPage,
     SignupPage,

@@ -10,7 +10,7 @@
 </ion-header>
 <ion-content padding id="page12">
   <h1 id="feedBack-heading11" style="color:#000000;">
-    Titulo Evento
+    {{nomeEvento}}
   </h1>
   <div id="feedBack-markdown39" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
@@ -20,12 +20,24 @@
     </p>
   </div>
   <form id="feedBack-form6">
+      <ion-item id="feedBack-btns" style="font-size: 50px;text-align: center;" >
+          <!-- 
+           
+          [class]="{'noActive':feedback.rate != 2}" 
+          [class]="{'noActive':feedback.rate != 3}"  -->
+          <!-- <button id="negativo" ion-button outline  > 
+              <button id="neutro" ion-button outline   > 
+              <button id="positivo" ion-button outline   >  -->
+        <ion-icon color="assertive" [ngClass]="{'noRate':feedback.rate != 1}" (click)="feedback.rate = 1" name="sad" > </ion-icon>
+        <ion-icon color="energized" [ngClass]="{'noRate':feedback.rate != 2}" (click)="feedback.rate = 2" name="analytics" ></ion-icon>
+        <ion-icon color="balanced"  [ngClass]="{'noRate':feedback.rate != 3}" (click)="feedback.rate = 3" name="happy" ></ion-icon>
+      </ion-item>
     <ion-item id="feedBack-textarea1">
-      <ion-label></ion-label>
-      <ion-textarea placeholder="O que achou?"></ion-textarea>
+      <ion-label>Mensagem:</ion-label>
+      <ion-textarea placeholder="Deixe-nos uma mensagem!" [(ngModel)]="feedback.mensagem" name="feedback.mensagem"></ion-textarea>
     </ion-item>
   </form>
-  <button id="feedBack-button12" ion-button outline color="balanced" block on-click="goToFeedEnviado()">
+  <button id="feedBack-button12" ion-button outline color="balanced" block (click)="goToFeedEnviado()">
     Enviar
   </button>
 </ion-content>

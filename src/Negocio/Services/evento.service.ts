@@ -40,6 +40,11 @@ export class EventoService{
             return JSON.parse(r.data);
         });
     }
+    public GetEventosRecomendacoesTags(){
+        return this.http.Get(this.baseUrl + "/RecomendacoesTags").then(r => {
+            return JSON.parse(r.data);
+        });
+    }
     public GetEventosUltimosVisitados(){
         return this.http.Get(this.baseUrl + "/UltimosVisitados").then(r => {
             return JSON.parse(r.data);

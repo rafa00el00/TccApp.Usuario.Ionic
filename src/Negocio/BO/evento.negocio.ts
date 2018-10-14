@@ -27,6 +27,9 @@ export class EventoNegocio{
     public GetEventosRecomendacoes(){
         return this._eventoService.GetEventosRecomendacoes();
     }
+    public GetEventosRecomendacoesTags(){
+        return this._eventoService.GetEventosRecomendacoesTags();
+    }
     public GetEventosUltimosVisitados(){
         return this._eventoService.GetEventosUltimosVisitados();
     }

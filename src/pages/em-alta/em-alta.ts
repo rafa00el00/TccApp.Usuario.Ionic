@@ -44,11 +44,11 @@ export class EmAltaPage {
     try {
       this.eventos = [];
       this.eventos = (await this._eventoNegocio.GetEventosEmAlta());
-      refresher.complete();
+
     } catch (error) {
       console.error(error);
     }
-
+    refresher.complete();
   }
 
   async doInfinite(infiniteScroll) {

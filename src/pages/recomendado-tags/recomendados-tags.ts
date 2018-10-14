@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { EventoDetalhePage } from '../evento-detalhe/evento-detalhe';
 import { PagarPage } from '../pagar/pagar';
-import { CompraEfetuadaPage } from '../compra-efetuada/compra-efetuada';
 import { ComprasPage } from '../compras/compras';
 import { FeedBackPage } from '../feed-back/feed-back';
 import { FeedEnviadoPage } from '../feed-enviado/feed-enviado';
@@ -11,10 +10,10 @@ import { EventoTo } from '../../Negocio/Models/evento.to';
 import { EventoNegocio } from '../../Negocio/BO/evento.negocio';
 
 @Component({
-  selector: 'page-recomendados',
-  templateUrl: 'recomendados.html'
+  selector: 'page-recomendados-tags',
+  templateUrl: 'recomendados-tags.html'
 })
-export class RecomendadosPage {
+export class RecomendadosTagsPage {
   eventos: EventoTo[];
   semEventos: boolean;
 
@@ -33,7 +32,7 @@ export class RecomendadosPage {
     this.semEventos = false;
     try {
       this.eventos = new Array<EventoTo>();
-      this.eventos = (await this._eventoNegocio.GetEventosRecomendacoes())
+      this.eventos = (await this._eventoNegocio.GetEventosRecomendacoesTags())
     } catch (error) {
       this.semEventos = true
     }
@@ -44,13 +43,12 @@ export class RecomendadosPage {
   async doRefresh(refresher) {
     try {
       this.eventos = [];
-      this.eventos = (await this._eventoNegocio.GetEventosRecomendacoes());
+      this.eventos = (await this._eventoNegocio.GetEventosRecomendacoesTags());
 
     } catch (error) {
       console.error(error);
     }
     refresher.complete();
-
   }
 
   async doInfinite(infiniteScroll) {

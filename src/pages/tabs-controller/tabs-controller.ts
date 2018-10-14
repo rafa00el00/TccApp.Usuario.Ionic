@@ -5,6 +5,7 @@ import { TodosOsEventosPage } from '../todos-os-eventos/todos-os-eventos';
 import { RecomendadosPage } from '../recomendados/recomendados';
 import { EmAltaPage } from '../em-alta/em-alta';
 import { PerfilPage } from '../perfil/perfil';
+import { RecomendadosTagsPage } from '../recomendado-tags/recomendados-tags';
 
 @Component({
   selector: 'page-tabs-controller',
@@ -16,7 +17,7 @@ export class TabsControllerPage {
   tab2Root: any = TodosOsEventosPage;
   tab3Root: any = RecomendadosPage;
   tab4Root: any = EmAltaPage;
-  tab5Root: any = PerfilPage;
+  tab5Root: any = RecomendadosTagsPage;
   constructor(public navCtrl: NavController) {
   }
   
